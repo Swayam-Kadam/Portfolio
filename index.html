@@ -401,22 +401,22 @@ I'm constantly exploring new tools, frameworks, and best practices to stay ahead
 
        <section class="contact-section" id="contact">
             
-            <h2>Contact <span>Me!</span><p>(Only Design)</p></h2>
+            <h2>Contact <span>Me!</span></h2>
             
             <div class="contact-form">
                 
                 <form action="">
                    
                     <div class="form-row">
-                        <input type="text" placeholder="Full Name">
-                        <input type="email" placeholder="Email Subject">
+                        <input type="text" name="fullName" placeholder="Full Name" required>
+                        <input type="text" name="emailSubject" placeholder="Email Subject" required>
                     </div>
                     <div class="form-row">
-                        <input type="text" placeholder="Mobile Number">
-                        <input type="email" placeholder="Email Address">
+                        <input type="text" name="mobileNumber" placeholder="Mobile Number" required>
+                        <input type="email" name="emailAddress" placeholder="Email Address" required>
                     </div>
-                    <textarea placeholder="Your Message"></textarea>
-                    <button type="submit">Submit</button>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" id="submitButton">Submit</button>
                 
                 </form>
             </div>

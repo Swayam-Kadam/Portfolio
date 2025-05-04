@@ -103,6 +103,54 @@ const typed = new Typed('.typed-text', {
     });
   }
 
+  // Contact form submission handler
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('form');
+    const submitButton = contactForm.querySelector('#submitButton');
+  
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      // Change button text to "Submitting..."
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+  
+      const formData = {
+        fullName: contactForm.querySelector('input[name="fullName"]').value,
+        emailSubject: contactForm.querySelector('input[name="emailSubject"]').value,
+        mobileNumber: contactForm.querySelector('input[name="mobileNumber"]').value,
+        emailAddress: contactForm.querySelector('input[name="emailAddress"]').value,
+        message: contactForm.querySelector('textarea[name="message"]').value
+      };
+  
+      fetch('https://script.google.com/macros/s/AKfycbziv-fwEMVU3hQAILeZHq2o1Esvn-yq7K2qVWzw0G6d48DidPZCcPfJ1qlZifVQWqE/exec', {
+        method: 'POST',
+        mode: 'no-cors', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.text())
+      .then(data => {
+        alert('Form submitted successfully!');
+        contactForm.reset();
+      })
+      .catch(err => {
+        alert('Error submitting form. See console for details.');
+        console.error(err);
+      })
+      .finally(() => {
+        // Restore the original button text and enable the button
+        submitButton.textContent = 'Submit';
+        submitButton.disabled = false;
+      });
+    });
+  });
+  
+  
+
+
    //add scroll event listener
 
    window.addEventListener('scroll',animateSkills);
