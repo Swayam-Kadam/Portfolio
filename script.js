@@ -25,6 +25,13 @@ const typed = new Typed('.typed-text', {
     navLinks.classList.toggle('active');
   })
 
+    // Close menu when any link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+      });
+  });
+
   //animation to my journey section
 
   function animatTimelineItem(){
@@ -157,3 +164,6 @@ const typed = new Typed('.typed-text', {
 
    //intial check on page load
    window.addEventListener('load',animateSkills);
+
+
+   

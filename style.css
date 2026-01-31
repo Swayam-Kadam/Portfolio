@@ -37,6 +37,7 @@ nav{
     width: 5%;
     font-weight: bold;
     color:white;
+    opacity: 0;
 }
 
 .nav-links{
@@ -162,7 +163,7 @@ nav{
 
 @media(max-width:768px){
 
-    .container{
+    /* .container{
         max-width: 1200px;
         margin:0 auto;
         padding:0 45px;
@@ -174,22 +175,58 @@ nav{
 
     .logo{
         width: 30px;
+    } */
+
+    .container{
+        max-width: 1200px;
+        margin:0 auto;
+        padding:0 45px;
+    }
+
+    nav {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .hamburger{
+        display:block;
+        position: fixed;
+        top: 20px;
+        right: 45px;
+        z-index: 1001;
+        background-color: #0f1624;
+        padding: 8px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
     .nav-links{
         flex-direction:column;
-        position: absolute;
+        position: fixed;
         top:70px;
         left:0;
         width:100%;
         background-color: #0f1624;
         padding: 20px;
-        display: none;
+        display: flex;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        z-index: 1000;
+        gap: 15px;
+        align-items: center;
     }
-     .nav-links.active{
+    
+   
+    
+    .nav-links.active{
         display:flex;
-
+        opacity: 1;
+        max-height: 300px;
+        align-items: center;
      }
+
 
      .hero{
         flex-direction: column;
@@ -215,11 +252,6 @@ nav{
         margin-bottom: 10px;
      }
 
-     /* .hero-image{
-        width:450px;
-        height:300px;
-        margin-right: 0rem;
-     } */
 
      .hero-image{
         width:  100%;
