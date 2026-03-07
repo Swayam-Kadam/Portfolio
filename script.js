@@ -121,13 +121,17 @@ const typed = new Typed('.typed-text', {
       // Change button text to "Submitting..."
       submitButton.disabled = true;
       submitButton.textContent = 'Submitting...';
+
+      const now = new Date();
+      const formattedDateTime = now.toLocaleString(); // Example: "3/7/2026, 12:15:00 PM"
   
       const formData = {
         fullName: contactForm.querySelector('input[name="fullName"]').value,
         emailSubject: contactForm.querySelector('input[name="emailSubject"]').value,
         mobileNumber: contactForm.querySelector('input[name="mobileNumber"]').value,
         emailAddress: contactForm.querySelector('input[name="emailAddress"]').value,
-        message: contactForm.querySelector('textarea[name="message"]').value
+        message: contactForm.querySelector('textarea[name="message"]').value,
+        submittedAt: formattedDateTime,
       };
   
       fetch('https://script.google.com/macros/s/AKfycbziv-fwEMVU3hQAILeZHq2o1Esvn-yq7K2qVWzw0G6d48DidPZCcPfJ1qlZifVQWqE/exec', {
