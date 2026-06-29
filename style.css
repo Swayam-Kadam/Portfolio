@@ -699,3 +699,25 @@ body::-webkit-scrollbar-thumb:hover{
   visibility: visible;
   opacity: 1;
 }
+
+.tech-stack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+.tech-stack img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    background: #fff;
+    border-radius: 15px;
+}
+
+.tech-stack img:hover {
+    transform: scale(1.2);
+}
